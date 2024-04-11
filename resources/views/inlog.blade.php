@@ -12,4 +12,5 @@
     <button name="inlog">inlog</button>
 
 </form>
+<a href="/registreer"> Registreer!!</a>
 @endsection

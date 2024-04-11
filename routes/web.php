@@ -3,10 +3,12 @@
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\contactcontroller as ControllersContactcontroller;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InlogController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\menucontroller as menucontroller2;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +35,15 @@ Route::post('/viewContact', 'App\Http\Controllers\contactcontroller@destroy')->n
 //Route::post('/updateMenu', 'App\Http\Controllers\menucontroller@destroy')->name('menu.destroy');
 Route::post('/updateMenu', 'App\Http\Controllers\menucontroller@update')->name('menu.update');
 Route::delete('/deleteMenu/{id}', 'App\Http\Controllers\menucontroller@destroy')->name('menu.destroy');
+Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
+Route::post('/registreer', 'App\Http\Controllers\InlogController@store')->name('user.store');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+
+Route::get('/registreer', function () {
+    return view('registratie');
 });
+
+
 Route::get('/inlog', function () {
     return view('inlog');
 });
